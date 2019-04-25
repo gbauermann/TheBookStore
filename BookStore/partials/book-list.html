@@ -1,0 +1,35 @@
+
+        <div id="bookListWrapper">
+            <form role="form">
+                <div class="form-group">
+                    <input type="text" class="form-control float-left" placeholder="Buscar título..." ng-model="searchTerm"/>
+                    <button class="btn btn-primary" style="margin-left: 10px" ng-click="doSearch()"> Buscar</button>
+                </div>
+            </form>
+            <div>
+                <ul class="list-unstyled">
+                    <li class="book" ng-repeat="book in items">
+                        <img style=" float: left;" src="{{book.volumeInfo.imageLinks.thumbnail}}">
+                        <div class="book-details clearfix">
+                            <div style="float:left; width: 70%">
+                                <h3>{{book.volumeInfo.title}}</h3>
+                                <p>{{book.saleInfo.retailPrice.amount | currency:"R$ ": 2}}</p>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item">Avaliação: {{book.volumeInfo.averageRating}}</li>
+                                    <li class="list-inline-item">Formato: {{book.volumeInfo.printType}}</li>
+                                    <li class="list-inline-item">Editora: {{book.volumeInfo.publisher}}</li>
+                                    <li class="list-inline-item">Lançamento: {{book.volumeInfo.publishedDate}}</li>
+                                </ul>
+                                <p>{{ book.volumeInfo.description | cut:true:300:' ...'}}</p>  
+                            </div>
+                            <div>                                
+                                <button class="btn btn-info float-right" style="margin-top: 100px; margin-right: 10px;" ng-click="addToCart(book)">Reservar</button>                                    
+                                <a href={{book.volumeInfo.infoLink}}>
+                                    <button class="btn btn-info float-right" style="margin-top: 100px; margin-right: 10px;">Detalhes</button>
+                                </a>
+                            </div>
+                        </div>                        
+                    </li> 
+                </ul>
+            </div>
+        </div>

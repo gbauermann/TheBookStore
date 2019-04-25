@@ -26,6 +26,7 @@
     width: 100%;
     padding: 10px;
     clear: both;
+    position: relative;
 }
 
 #bookListWrapper input{
@@ -43,6 +44,28 @@
     margin-left: 160px;
 }
 
+.container.ng-enter{
+    -webkit-transition:0.5s linear all;
+    -moz-transition:0.5s linear all;
+    -o-transition:0.5s linear all;
+    transition:  0.5s linear all;
+    opacity: 0;
+}
 
+.container.ng-enter-active{
+    opacity: 1;
+}
 
+.book.ng-leave{
+    -webkit-transition:0.5s linear all;
+    -moz-transition:0.5s linear all;
+    -o-transition:0.5s linear all;
+    transition:  0.5s linear all;
+    opacity: 1;
+    left: 0;
+}
 
+.book.ng-enter-active{
+    opacity: 0;
+    left: 600px;
+}
